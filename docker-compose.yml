@@ -1,0 +1,30 @@
+version: '3.4'
+services:
+  mern-client:
+    container_name: mern-client
+    build: ./client
+    #restart: always
+    ports:
+      - 9200:80
+  mern-server:
+    container_name: mern-server
+    build: ./server
+    #restart: always
+    ports:
+      - 9600:9600
+    depends_on:
+      - mern-mongo
+  mern-mongo:
+    container_name: mern-mongo
+    build: ./mongo
+    #restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: bkAppDBUsername
+      MONGO_INITDB_ROOT_PASSWORD: ja60fjwKkc8uHmqhZADuPYJYc202RV8q
+      MONGO_INITDB_DATABASE: bk-database
+    ports: 
+      - 27018:27017
+    volumes:
+      - mern-data:/data/db
+volumes:
+  mern-data:

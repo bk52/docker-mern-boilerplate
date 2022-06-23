@@ -1,0 +1,32 @@
+:root {
+    --color-body: #F7F7F7;
+    --navBar-height:50px;
+    --shadow-color:rgba(0, 0, 0, 0.2);
+    --menu-height:73px;
+}
+
+body{
+    padding: 0px;
+    margin: 0px;
+    background-color: var(--color-body);
+}
+
+.siteContent{
+    position: absolute;
+    width: calc(100% - 16px);
+    height: calc(100% - (var(--navBar-height) + var(--menu-height)));
+    overflow-y: auto;
+    background-color: white;
+    margin: 8px;
+}
+
+.notFound{
+    width: 80%; 
+    height: 80%;
+    position: absolute;
+    margin: auto;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    object-fit: contain;
+}
